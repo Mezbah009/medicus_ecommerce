@@ -168,6 +168,11 @@ class CartController extends Controller
     $cartContent = (Cart::content());
     $data['cartContent'] = $cartContent;
     //dd($data);
+    if(request()->wantsJson()){
+        return response()->json([
+            "data" =>$cartContent
+        ]);
+    }
         return view ('front.cart', $data);
     }
 
