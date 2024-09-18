@@ -10,17 +10,25 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function product_images(){
+    public function product_images()
+    {
         return $this->hasMany(ProductImage::class);
     }
-    public function brand(){
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
-    public function product_ratings(){
-        return $this->hasMany(ProductRating::class)->where('status',1);
+    public function product_ratings()
+    {
+        return $this->hasMany(ProductRating::class)->where('status', 1);
     }
     public function product_items()
     {
         return $this->hasMany(ProductItem::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
